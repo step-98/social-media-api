@@ -1,5 +1,6 @@
 import os
 import uuid
+from typing import Optional
 
 from django.contrib.auth.models import AbstractUser, UserManager as DjangoUserManager
 from django.db import models
@@ -52,7 +53,7 @@ class User(AbstractUser):
     date_of_birth = models.DateField(null=True, blank=True)
 
     @property
-    def age(self):
+    def age(self) -> Optional[int]:
         if not self.date_of_birth:
             return None
         today = date.today()

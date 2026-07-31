@@ -4,7 +4,7 @@ from rest_framework import generics, status
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework.generics import GenericAPIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError
@@ -12,7 +12,7 @@ from social.models import Follow
 from social.serializers import FollowSerializer
 
 from user.filters import UserFilter
-from user.serializers import UserSerializer, UserListSerializer, UserDetailSerializer
+from user.serializers import UserSerializer, UserListSerializer, UserDetailSerializer, LogoutSerializer
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -104,11 +104,18 @@ class UserViewSet(ReadOnlyModelViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class LogoutView(APIView):
+class LogoutView(GenericAPIView):
+    serializer_class = LogoutSerializer
+    permission_classes = (IsAuthenticated,)
+
     def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
         try:
-            token = RefreshToken(request.data.get("refresh"))
+            token = RefreshToken(serializer.validated_data["refresh"])
             token.blacklist()
-            return Response({"detail": "Logged out successfully."})
+            return Response({"detail": "Logged out successfully."}, status=status.HTTP_200_OK)
+
         except TokenError as e:
             return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
