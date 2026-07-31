@@ -1,0 +1,391 @@
+[
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$dummy$dummyhash",
+      "last_login": null,
+      "is_superuser": true,
+      "email": "admin@example.com",
+      "first_name": "Admin",
+      "last_name": "User",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-01-01T10:00:00Z",
+      "bio": "Administrator",
+      "avatar": "",
+      "date_of_birth": "1990-01-01",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$dummy$dummyhash",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "john@example.com",
+      "first_name": "John",
+      "last_name": "Doe",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-02T10:00:00Z",
+      "bio": "Python developer",
+      "avatar": "",
+      "date_of_birth": "1998-04-15",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$dummy$dummyhash",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "alice@example.com",
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-03T10:00:00Z",
+      "bio": "Coffee lover",
+      "avatar": "",
+      "date_of_birth": "1997-09-20",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$dummy$dummyhash",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "bob@example.com",
+      "first_name": "Bob",
+      "last_name": "Brown",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-04T10:00:00Z",
+      "bio": "Backend engineer",
+      "avatar": "",
+      "date_of_birth": "1994-02-11",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$dummy$dummyhash",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "kate@example.com",
+      "first_name": "Kate",
+      "last_name": "Wilson",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-01-05T10:00:00Z",
+      "bio": "Travel blogger",
+      "avatar": "",
+      "date_of_birth": "1995-08-18",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+
+  {
+    "model": "social.hashtag",
+    "pk": 1,
+    "fields": {
+      "name": "python"
+    }
+  },
+  {
+    "model": "social.hashtag",
+    "pk": 2,
+    "fields": {
+      "name": "django"
+    }
+  },
+  {
+    "model": "social.hashtag",
+    "pk": 3,
+    "fields": {
+      "name": "travel"
+    }
+  },
+  {
+    "model": "social.hashtag",
+    "pk": 4,
+    "fields": {
+      "name": "coffee"
+    }
+  },
+  {
+    "model": "social.hashtag",
+    "pk": 5,
+    "fields": {
+      "name": "coding"
+    }
+  },
+
+  {
+    "model": "social.post",
+    "pk": 1,
+    "fields": {
+      "content": "Learning Django REST Framework!",
+      "author": 2,
+      "created_at": "2026-02-01T09:00:00Z",
+      "image": "",
+      "hashtags": [1,2]
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 2,
+    "fields": {
+      "content": "Morning coffee.",
+      "author": 3,
+      "created_at": "2026-02-02T10:00:00Z",
+      "image": "",
+      "hashtags": [4]
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 3,
+    "fields": {
+      "content": "Vacation in Italy!",
+      "author": 5,
+      "created_at": "2026-02-03T10:00:00Z",
+      "image": "",
+      "hashtags": [3]
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 4,
+    "fields": {
+      "content": "Working with Docker.",
+      "author": 4,
+      "created_at": "2026-02-04T10:00:00Z",
+      "image": "",
+      "hashtags": [1,5]
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 5,
+    "fields": {
+      "content": "Another Python trick.",
+      "author": 2,
+      "created_at": "2026-02-05T10:00:00Z",
+      "image": "",
+      "hashtags": [1]
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 6,
+    "fields": {
+      "content": "Beautiful sunset.",
+      "author": 5,
+      "created_at": "2026-02-06T10:00:00Z",
+      "image": "",
+      "hashtags": [3]
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 7,
+    "fields": {
+      "content": "Unit testing today.",
+      "author": 4,
+      "created_at": "2026-02-07T10:00:00Z",
+      "image": "",
+      "hashtags": [5]
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 8,
+    "fields": {
+      "content": "Weekend coding session.",
+      "author": 3,
+      "created_at": "2026-02-08T10:00:00Z",
+      "image": "",
+      "hashtags": [1,5]
+    }
+  },
+
+  {
+    "model": "social.follow",
+    "pk": 1,
+    "fields": {
+      "follower": 2,
+      "following": 3
+    }
+  },
+  {
+    "model": "social.follow",
+    "pk": 2,
+    "fields": {
+      "follower": 2,
+      "following": 5
+    }
+  },
+  {
+    "model": "social.follow",
+    "pk": 3,
+    "fields": {
+      "follower": 3,
+      "following": 2
+    }
+  },
+  {
+    "model": "social.follow",
+    "pk": 4,
+    "fields": {
+      "follower": 4,
+      "following": 2
+    }
+  },
+  {
+    "model": "social.follow",
+    "pk": 5,
+    "fields": {
+      "follower": 5,
+      "following": 3
+    }
+  },
+
+  {
+    "model": "social.like",
+    "pk": 1,
+    "fields": {
+      "post": 1,
+      "user": 3
+    }
+  },
+  {
+    "model": "social.like",
+    "pk": 2,
+    "fields": {
+      "post": 1,
+      "user": 4
+    }
+  },
+  {
+    "model": "social.like",
+    "pk": 3,
+    "fields": {
+      "post": 2,
+      "user": 2
+    }
+  },
+  {
+    "model": "social.like",
+    "pk": 4,
+    "fields": {
+      "post": 3,
+      "user": 2
+    }
+  },
+  {
+    "model": "social.like",
+    "pk": 5,
+    "fields": {
+      "post": 4,
+      "user": 5
+    }
+  },
+  {
+    "model": "social.like",
+    "pk": 6,
+    "fields": {
+      "post": 8,
+      "user": 4
+    }
+  },
+
+  {
+    "model": "social.comment",
+    "pk": 1,
+    "fields": {
+      "content": "Great post!",
+      "author": 3,
+      "post": 1,
+      "created_at": "2026-02-01T11:00:00Z"
+    }
+  },
+  {
+    "model": "social.comment",
+    "pk": 2,
+    "fields": {
+      "content": "Nice!",
+      "author": 4,
+      "post": 1,
+      "created_at": "2026-02-01T12:00:00Z"
+    }
+  },
+  {
+    "model": "social.comment",
+    "pk": 3,
+    "fields": {
+      "content": "Looks amazing!",
+      "author": 2,
+      "post": 3,
+      "created_at": "2026-02-03T12:00:00Z"
+    }
+  },
+  {
+    "model": "social.comment",
+    "pk": 4,
+    "fields": {
+      "content": "I agree.",
+      "author": 5,
+      "post": 7,
+      "created_at": "2026-02-07T15:00:00Z"
+    }
+  },
+  {
+  "model": "social.post",
+  "pk": 9,
+  "fields": {
+    "content": "Welcome to my social media API! This is my first post.",
+    "author": 1,
+    "created_at": "2026-02-09T09:00:00Z",
+    "image": "",
+    "hashtags": [1, 2]
+  }
+},
+{
+  "model": "social.post",
+  "pk": 10,
+  "fields": {
+    "content": "Today I'm testing my Django REST Framework project.",
+    "author": 1,
+    "created_at": "2026-02-10T14:30:00Z",
+    "image": "",
+    "hashtags": [2, 5]
+  }
+},
+{
+  "model": "social.post",
+  "pk": 11,
+  "fields": {
+    "content": "Everything works! Time to write more features 🚀",
+    "author": 1,
+    "created_at": "2026-02-11T18:15:00Z",
+    "image": "",
+    "hashtags": [1, 5]
+  }
+}
+]

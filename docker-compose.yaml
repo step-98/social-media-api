@@ -1,0 +1,81 @@
+services:
+  social:
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+      - my_media:/app/media
+    command: >
+      sh -c "python manage.py wait_for_db &&
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - social_db
+
+
+  social_db:
+    image: postgres:16.0-alpine3.17
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_db:/var/lib/postgresql/data
+
+  redis:
+    image: "redis:alpine"
+
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "celery -A social_media_api worker -l info"
+    depends_on:
+      - social
+      - redis
+      - social_db
+    restart: on-failure
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+      - my_media:/app/media
+
+  celery-beat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py wait_for_db &&
+            celery -A social_media_api beat -l INFO -s /tmp/celerybeat-schedule"
+    depends_on:
+      - social
+      - redis
+      - social_db
+    restart: on-failure
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+      - my_media:/app/media
+
+  flower:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5555:5555"
+    command: "celery -A social_media_api flower --address=0.0.0.0"
+    depends_on:
+      - celery
+    env_file:
+      - .env
+
+volumes:
+  my_db:
+  my_media:
